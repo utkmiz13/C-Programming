@@ -1,0 +1,255 @@
+Class 14 – Recursion in C (Questions and Answers)
+
+
+---
+
+1. What is recursion in C?
+Recursion is a programming technique in which a function calls itself directly or indirectly to solve a problem. Recursive functions must have a base condition to avoid infinite calls.
+
+
+---
+
+2. What are the types of recursion?
+There are three types of recursion: direct recursion (function calls itself), indirect recursion (function A calls function B, and B calls A), and tail recursion (recursive call is the last statement in the function).
+
+
+---
+
+3. What is a base condition in recursion?
+The base condition is a condition that stops the recursion. Without a base condition, recursion will cause a stack overflow.
+
+
+---
+
+4. Write a program to calculate the factorial of a number using recursion.
+
+#include <stdio.h>
+int factorial(int n) {
+    if(n==0) return 1;
+    else return n * factorial(n-1);
+}
+int main() {
+    int num = 5;
+    printf("Factorial = %d", factorial(num));
+    return 0;
+}
+
+Output: Factorial = 120
+
+
+---
+
+5. Write a recursive program to calculate the nth Fibonacci number.
+
+#include <stdio.h>
+int fib(int n) {
+    if(n==0) return 0;
+    if(n==1) return 1;
+    return fib(n-1) + fib(n-2);
+}
+int main() {
+    int n = 7;
+    printf("Fibonacci = %d", fib(n));
+    return 0;
+}
+
+Output: Fibonacci = 13
+
+
+---
+
+6. What is the difference between recursion and iteration?
+Recursion uses function calls, whereas iteration uses loops. Recursion can be elegant but uses more memory; iteration is generally faster and uses less memory.
+
+
+---
+
+7. What is tail recursion?
+Tail recursion occurs when the recursive call is the last statement in the function. Tail recursion can be optimized by the compiler to improve performance.
+
+
+---
+
+8. Give an example of tail recursion.
+
+#include <stdio.h>
+void printNumbers(int n) {
+    if(n==0) return;
+    printf("%d ", n);
+    printNumbers(n-1);
+}
+int main() {
+    printNumbers(5);
+    return 0;
+}
+
+Output: 5 4 3 2 1
+
+
+---
+
+9. What is non-tail recursion?
+Non-tail recursion occurs when some computation happens after the recursive call. Example: factorial function is non-tail recursive because n * factorial(n-1) happens after the recursive call.
+
+
+---
+
+10. Write a recursive program to find the sum of first n natural numbers.
+
+#include <stdio.h>
+int sum(int n) {
+    if(n==0) return 0;
+    else return n + sum(n-1);
+}
+int main() {
+    int n = 5;
+    printf("Sum = %d", sum(n));
+    return 0;
+}
+
+Output: Sum = 15
+
+
+---
+
+11. Write a recursive program to reverse a number.
+
+#include <stdio.h>
+void reverse(int n) {
+    if(n==0) return;
+    printf("%d", n%10);
+    reverse(n/10);
+}
+int main() {
+    int num = 12345;
+    reverse(num);
+    return 0;
+}
+
+Output: 54321
+
+
+---
+
+12. Write a recursive program to check if a string is a palindrome.
+
+#include <stdio.h>
+#include <string.h>
+int isPalindrome(char str[], int start, int end) {
+    if(start >= end) return 1;
+    if(str[start] != str[end]) return 0;
+    return isPalindrome(str, start+1, end-1);
+}
+int main() {
+    char str[] = "level";
+    if(isPalindrome(str, 0, strlen(str)-1))
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+    return 0;
+}
+
+Output: Palindrome
+
+
+---
+
+13. Can recursion cause memory issues?
+Yes, if the recursion is too deep or missing a base condition, it can cause stack overflow.
+
+
+---
+
+14. What are the advantages of recursion?
+
+Simplifies code for problems like factorial, Fibonacci, tree traversal
+
+Elegant and easy to understand
+
+Reduces need for loops in some problems
+
+
+
+---
+
+15. What are the disadvantages of recursion?
+
+Uses more memory due to function call stack
+
+Slower than iteration in some cases
+
+Can cause stack overflow if depth is too large
+
+
+
+---
+
+16. Write a recursive program to calculate GCD of two numbers.
+
+#include <stdio.h>
+int gcd(int a, int b) {
+    if(b==0) return a;
+    else return gcd(b, a%b);
+}
+int main() {
+    int a = 48, b = 18;
+    printf("GCD = %d", gcd(a,b));
+    return 0;
+}
+
+Output: GCD = 6
+
+
+---
+
+17. Write a recursive program to print a number in binary.
+
+#include <stdio.h>
+void toBinary(int n) {
+    if(n>0) {
+        toBinary(n/2);
+        printf("%d", n%2);
+    }
+}
+int main() {
+    int num = 10;
+    toBinary(num);
+    return 0;
+}
+
+Output: 1010
+
+
+---
+
+18. Can a recursive function call itself indirectly?
+Yes, this is called indirect recursion, e.g., function A calls B and B calls A.
+
+
+---
+
+19. How to prevent stack overflow in recursion?
+
+Always provide a base condition
+
+Avoid very deep recursion for large inputs
+
+Use iteration if possible for optimization
+
+
+
+---
+
+20. Give some examples of problems solved using recursion.
+
+Factorial calculation
+
+Fibonacci series
+
+Tower of Hanoi
+
+Tree traversal
+
+Palindrome checking
+
+Binary search
