@@ -1,0 +1,96 @@
+1. Who developed the C language?
+Dennis Ritchie developed C at Bell Labs in 1972.
+
+
+2. What type of language is C?
+C is a procedural, general-purpose, compiled, and structured programming language.
+
+
+3. Write a simple C program to print “Hello World”.
+
+
+
+#include <stdio.h>
+int main() {
+    printf("Hello World");
+    return 0;
+}
+
+Output:
+
+Hello World
+
+4. What is the extension of a C program file?
+The extension of a C program file is .c (for example, program.c).
+
+
+5. Define compiler.
+A compiler converts source code into machine code.
+
+
+6. What are tokens in C?
+Tokens are the smallest individual elements of a program, like keywords, constants, operators, and symbols.
+
+
+7. Name any five keywords.
+int, float, char, if, and return.
+
+
+8. What are identifiers?
+Identifiers are names given to variables, functions, and arrays. Example: marks, sum, main.
+
+
+9. What is a variable?
+A variable is a named memory location used to store data. Example: int a = 10;.
+
+
+10. Write five features of C.
+Simple, Portable, Structured, Efficient, and Extensible.
+
+
+11. What is the use of #include <stdio.h>?
+It includes standard input/output functions like printf() and scanf().
+
+
+12. Explain the main() function.
+The main() function is the entry point of every C program where execution starts.
+
+
+13. Mention any two advantages of C.
+Fast execution speed and portability across platforms.
+
+
+14. Write one limitation of C.
+It doesn’t support Object-Oriented Programming.
+
+
+15. Predict the output of the following:
+
+
+
+printf("C Language");
+
+Output:
+
+C Language
+
+16. What is a constant?
+A constant is a fixed value that does not change during program execution. Example: const int a = 10;.
+
+
+17. Difference between compiler and interpreter.
+A compiler translates the entire program at once and is faster, while an interpreter translates line by line and is slower. Example: C uses a compiler, while Python uses an interpreter.
+
+
+18. Write the general structure of a C program.
+
+
+
+#include <stdio.h>
+int main() {
+    // Code
+    return 0;
+}
+
+19. What is the use of return 0;?
+It indicates successful termination of the program.
