@@ -1,0 +1,229 @@
+Class 12 – Preprocessor Directives & Macros in C (Questions and Answers)
+
+
+---
+
+1. What is a preprocessor in C?
+The preprocessor is a tool that processes the source code before compilation, handling directives like #include, #define, and #ifdef.
+
+
+---
+
+2. What is a preprocessor directive?
+A preprocessor directive gives instructions to the compiler before compilation. It starts with #.
+
+
+---
+
+3. Name some common preprocessor directives in C.
+
+#include – include header files
+
+#define – define constants or macros
+
+#undef – undefine a macro
+
+#ifdef / #ifndef – conditional compilation
+
+#endif – ends conditional compilation
+
+#pragma – compiler-specific instructions
+
+
+
+---
+
+4. What is the purpose of #include?
+#include is used to include header files into a program.
+Example:
+
+#include <stdio.h>
+
+
+---
+
+5. What is a macro in C?
+A macro is a predefined code snippet or constant created using #define that is replaced by the preprocessor before compilation.
+
+
+---
+
+6. Write a macro to define PI.
+
+#include <stdio.h>
+#define PI 3.14159
+int main() {
+    printf("PI = %.2f", PI);
+    return 0;
+}
+
+Output:
+
+PI = 3.14
+
+
+---
+
+7. What is a function-like macro?
+A macro that accepts arguments and behaves like a function.
+
+Example:
+
+#define SQUARE(x) ((x)*(x))
+
+
+---
+
+8. Write a program using a function-like macro.
+
+#include <stdio.h>
+#define SQUARE(x) ((x)*(x))
+int main() {
+    int num = 5;
+    printf("Square = %d", SQUARE(num));
+    return 0;
+}
+
+Output:
+
+Square = 25
+
+
+---
+
+9. What is the difference between #define and const?
+
+Feature	#define	const
+
+Type Checking	No	Yes
+Memory	Replaced at compile-time	Allocated memory
+Scope	Global	Can be local/global
+
+
+
+---
+
+10. What is conditional compilation?
+Conditional compilation allows parts of code to compile only if certain conditions are met, using directives like #ifdef, #ifndef, #else, #endif.
+
+
+---
+
+11. Write a program using #ifdef.
+
+#include <stdio.h>
+#define DEBUG
+int main() {
+#ifdef DEBUG
+    printf("Debug mode enabled\n");
+#endif
+    printf("Program running\n");
+    return 0;
+}
+
+Output:
+
+Debug mode enabled
+Program running
+
+
+---
+
+12. What is #ifndef used for?
+#ifndef means “if not defined”. It executes code only if the macro is not defined.
+
+
+---
+
+13. Write a program using #ifndef.
+
+#include <stdio.h>
+#ifndef PI
+#define PI 3.14
+#endif
+int main() {
+    printf("PI = %.2f", PI);
+    return 0;
+}
+
+Output:
+
+PI = 3.14
+
+
+---
+
+14. What is #undef used for?
+#undef removes a previously defined macro.
+
+Example:
+
+#define MAX 100
+#undef MAX
+
+
+---
+
+15. Can macros be nested?
+Yes, one macro can use another macro inside it.
+
+
+---
+
+16. Write a program using nested macros.
+
+#include <stdio.h>
+#define A 5
+#define B (A + 10)
+int main() {
+    printf("B = %d", B);
+    return 0;
+}
+
+Output:
+
+B = 15
+
+
+---
+
+17. What are header files in C?
+Header files contain function declarations, macros, and constants to be shared across programs.
+Example: stdio.h, math.h
+
+
+---
+
+18. What is #pragma?
+#pragma is used for compiler-specific instructions, e.g., to suppress warnings.
+
+Example:
+
+#pragma warning(disable:4996)
+
+
+---
+
+19. What is the difference between #include <file> and #include "file"?
+
+<file>: searches in standard library directories
+
+"file": searches in current directory first, then standard directories
+
+
+
+---
+
+20. List all important preprocessor directives in C.
+
+#include – include header files
+
+#define – define constants/macros
+
+#undef – undefine macro
+
+#ifdef / #ifndef / #endif – conditional compilation
+
+#else / #elif – conditional blocks
+
+#pragma – compiler instructions
