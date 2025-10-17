@@ -1,0 +1,218 @@
+
+Class 19 – Unions & Enums in C (Questions and Answers)
+
+
+---
+
+1. What is a union in C?
+A union is a user-defined data type like a structure, but all members share the same memory location, so only one member can hold a value at a time.
+
+
+---
+
+2. How do you declare a union?
+
+union UnionName {
+    data_type member1;
+    data_type member2;
+    ...
+};
+
+Example:
+
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+
+
+---
+
+3. How do you create a union variable?
+
+union Data d1;
+
+
+---
+
+4. How do you access union members?
+Use the dot operator .:
+
+d1.i = 10;
+d1.f = 3.5; // overwrites d1.i
+
+
+---
+
+5. Write a program to demonstrate union behavior.
+
+#include <stdio.h>
+union Data {
+    int i;
+    float f;
+    char str[20];
+};
+int main() {
+    union Data d;
+    d.i = 10;
+    printf("i = %d\n", d.i);
+    d.f = 3.5;
+    printf("f = %.2f, i = %d\n", d.f, d.i);
+    return 0;
+}
+
+Output:
+
+i = 10
+f = 3.50, i = 1075838976
+
+
+---
+
+6. What is the size of a union?
+The size of a union is equal to the size of its largest member.
+
+
+---
+
+7. Difference between structure and union?
+
+Feature	Structure	Union
+
+Memory	Each member has its own	All members share memory
+Value	Can store all members	Only one member at a time
+Size	Sum of sizes	Size of largest member
+
+
+
+---
+
+8. What is an enum in C?
+An enum (enumeration) is a user-defined type that assigns names to integer constants for better code readability.
+
+
+---
+
+9. How do you declare an enum?
+
+enum EnumName {CONST1, CONST2, CONST3};
+
+Example:
+
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
+
+
+---
+
+10. What is the default value of enum constants?
+The first constant has value 0, and subsequent constants increment by 1 automatically.
+
+
+---
+
+11. Can you assign specific values to enum constants?
+Yes:
+
+enum Days {Sun=1, Mon, Tue, Wed=10};
+
+
+---
+
+12. Write a program using enum to display day names.
+
+#include <stdio.h>
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat};
+int main() {
+    enum Days today = Wed;
+    printf("Today = %d", today);
+    return 0;
+}
+
+Output: Today = 3
+
+
+---
+
+13. Can enums be used in switch statements?
+Yes, enums are integers internally, so they can be used in switch-case.
+
+Example:
+
+enum Color {Red, Green, Blue};
+enum Color c = Green;
+switch(c) {
+    case Red: printf("Red"); break;
+    case Green: printf("Green"); break;
+    case Blue: printf("Blue"); break;
+}
+
+Output: Green
+
+
+---
+
+14. What is the size of an enum in C?
+The size of an enum is typically the size of an integer, usually 4 bytes.
+
+
+---
+
+15. Can you declare a pointer to a union?
+Yes:
+
+union Data *ptr;
+
+Access members using the arrow operator ->.
+
+
+---
+
+16. Write a program using a pointer to a union.
+
+#include <stdio.h>
+union Data {
+    int i;
+    float f;
+};
+int main() {
+    union Data d;
+    union Data *ptr = &d;
+    ptr->i = 100;
+    printf("i = %d", ptr->i);
+    return 0;
+}
+
+Output: i = 100
+
+
+---
+
+17. Can a union contain arrays or structures?
+Yes, a union can contain arrays, structures, or other unions as members.
+
+
+---
+
+18. Can an enum be used as a data type for a variable?
+Yes:
+
+enum Days today;
+today = Mon;
+
+
+---
+
+19. Can enums improve code readability?
+Yes, using enums instead of numeric constants makes the code more readable and maintainable.
+
+
+---
+
+20. Difference between union and enum?
+
+Feature	Union	Enum
+
+Memory	Shares memory among members	Each constant has its own integer value
+Purpose	Store different types in same memory	Assign names to integer constants
+Example	union Data {int i; float f;}	enum Days {Sun, Mon, Tue}
