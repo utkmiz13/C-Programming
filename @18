@@ -1,0 +1,267 @@
+
+Class 18 – Structures in C (Questions and Answers)
+
+
+---
+
+1. What is a structure in C?
+A structure in C is a user-defined data type that allows grouping variables of different types under a single name.
+
+
+---
+
+2. How do you declare a structure?
+
+struct StructureName {
+    data_type member1;
+    data_type member2;
+    ...
+};
+
+Example:
+
+struct Student {
+    int id;
+    char name[20];
+    float marks;
+};
+
+
+---
+
+3. How do you create a structure variable?
+
+struct Student s1;
+
+
+---
+
+4. How do you access structure members?
+Use the dot operator .:
+
+s1.id = 101;
+strcpy(s1.name, "Parth");
+s1.marks = 95.5;
+
+
+---
+
+5. Write a program to declare a structure and print its members.
+
+#include <stdio.h>
+#include <string.h>
+struct Student {
+    int id;
+    char name[20];
+    float marks;
+};
+int main() {
+    struct Student s1;
+    s1.id = 101;
+    strcpy(s1.name, "Parth");
+    s1.marks = 95.5;
+    printf("ID: %d, Name: %s, Marks: %.2f", s1.id, s1.name, s1.marks);
+    return 0;
+}
+
+Output: ID: 101, Name: Parth, Marks: 95.50
+
+
+---
+
+6. What is the difference between arrays and structures?
+
+Array: stores elements of same type
+
+Structure: stores elements of different types
+
+
+
+---
+
+7. How do you initialize a structure at the time of declaration?
+
+struct Student s1 = {101, "Parth", 95.5};
+
+
+---
+
+8. How do you create an array of structures?
+
+struct Student students[3];
+
+
+---
+
+9. Write a program to read and display data of 3 students using array of structures.
+
+#include <stdio.h>
+#include <string.h>
+struct Student {
+    int id;
+    char name[20];
+    float marks;
+};
+int main() {
+    struct Student students[3];
+    for(int i=0; i<3; i++) {
+        students[i].id = i+1;
+        sprintf(students[i].name, "Student%d", i+1);
+        students[i].marks = 80 + i*5;
+    }
+    for(int i=0; i<3; i++)
+        printf("ID: %d, Name: %s, Marks: %.2f\n", students[i].id, students[i].name, students[i].marks);
+    return 0;
+}
+
+Output:
+
+ID: 1, Name: Student1, Marks: 80.00
+ID: 2, Name: Student2, Marks: 85.00
+ID: 3, Name: Student3, Marks: 90.00
+
+
+---
+
+10. What is a pointer to a structure?
+A pointer that stores the address of a structure variable.
+
+
+---
+
+11. How do you access members using a structure pointer?
+Use the arrow operator ->:
+
+struct Student *ptr = &s1;
+printf("%d", ptr->id);
+
+
+---
+
+12. Write a program using structure pointer.
+
+#include <stdio.h>
+#include <string.h>
+struct Student {
+    int id;
+    char name[20];
+};
+int main() {
+    struct Student s1 = {101, "Parth"};
+    struct Student *ptr = &s1;
+    printf("ID: %d, Name: %s", ptr->id, ptr->name);
+    return 0;
+}
+
+Output: ID: 101, Name: Parth
+
+
+---
+
+13. What is a nested structure?
+A nested structure is a structure within another structure.
+
+
+---
+
+14. Write a program for a nested structure.
+
+#include <stdio.h>
+struct Date {
+    int day, month, year;
+};
+struct Student {
+    int id;
+    char name[20];
+    struct Date dob;
+};
+int main() {
+    struct Student s = {101, "Parth", {17, 10, 2025}};
+    printf("ID: %d, Name: %s, DOB: %d-%d-%d", s.id, s.name, s.dob.day, s.dob.month, s.dob.year);
+    return 0;
+}
+
+Output: ID: 101, Name: Parth, DOB: 17-10-2025
+
+
+---
+
+15. What is the difference between structure and union?
+
+Structure: each member gets separate memory
+
+Union: all members share the same memory, only one can hold a value at a time
+
+
+
+---
+
+16. Can structures be passed to functions?
+Yes, by value or by reference (pointer).
+
+
+---
+
+17. Write a program to pass structure to a function by value.
+
+#include <stdio.h>
+struct Student {
+    int id;
+    float marks;
+};
+void display(struct Student s) {
+    printf("ID: %d, Marks: %.2f", s.id, s.marks);
+}
+int main() {
+    struct Student s1 = {101, 95.5};
+    display(s1);
+    return 0;
+}
+
+Output: ID: 101, Marks: 95.50
+
+
+---
+
+18. Write a program to pass structure to a function by pointer.
+
+#include <stdio.h>
+struct Student {
+    int id;
+    float marks;
+};
+void display(struct Student *s) {
+    printf("ID: %d, Marks: %.2f", s->id, s->marks);
+}
+int main() {
+    struct Student s1 = {101, 95.5};
+    display(&s1);
+    return 0;
+}
+
+Output: ID: 101, Marks: 95.50
+
+
+---
+
+19. Can structures contain arrays?
+Yes, a structure can have arrays as members.
+
+
+---
+
+20. Write a program with a structure containing an array.
+
+#include <stdio.h>
+struct Student {
+    char name[20];
+    int marks[3];
+};
+int main() {
+    struct Student s = {"Parth", {90, 85, 95}};
+    printf("Name: %s, Marks: %d %d %d", s.name, s.marks[0], s.marks[1], s.marks[2]);
+    return 0;
+}
+
+Output: Name: Parth, Marks: 90 85 95
+
