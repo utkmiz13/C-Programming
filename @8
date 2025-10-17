@@ -1,0 +1,272 @@
+
+Class 8 – Pointers in C (Questions and Answers)
+
+
+---
+
+1. What is a pointer in C?
+A pointer is a variable that stores the address of another variable instead of its value.
+
+
+---
+
+2. How do you declare a pointer?
+
+data_type *pointer_name;
+
+Example:
+
+int *ptr;
+
+
+---
+
+3. What is the difference between a pointer and a normal variable?
+A normal variable stores data, whereas a pointer stores the address of a variable.
+
+
+---
+
+4. What is the & operator in C?
+The & operator is used to get the address of a variable.
+Example:
+
+int a = 10;
+printf("%p", &a); // prints the address of a
+
+
+---
+
+5. What is the * operator in C?
+The * operator is used to access the value at the address stored in a pointer (dereferencing).
+
+Example:
+
+int a = 10;
+int *p = &a;
+printf("%d", *p); // prints 10
+
+
+---
+
+6. Write a program to print the value and address of a variable using pointers.
+
+#include <stdio.h>
+int main() {
+    int a = 25;
+    int *p = &a;
+    printf("Value = %d\n", *p);
+    printf("Address = %p", p);
+    return 0;
+}
+
+Output:
+
+Value = 25
+Address = 0x7ffeefbff5ac
+
+
+---
+
+7. How do you change the value of a variable using a pointer?
+
+#include <stdio.h>
+int main() {
+    int a = 10;
+    int *p = &a;
+    *p = 50;  // changing value via pointer
+    printf("%d", a);
+    return 0;
+}
+
+Output:
+
+50
+
+
+---
+
+8. What is a NULL pointer?
+A NULL pointer is a pointer that points to nothing (0).
+
+int *ptr = NULL;
+
+
+---
+
+9. What is a void pointer?
+A void pointer (void *) is a pointer that can point to any data type, but it cannot be dereferenced directly without typecasting.
+
+
+---
+
+10. Write a program to add two numbers using pointers.
+
+#include <stdio.h>
+int main() {
+    int a = 10, b = 20, sum;
+    int *p1 = &a, *p2 = &b;
+    sum = *p1 + *p2;
+    printf("Sum = %d", sum);
+    return 0;
+}
+
+Output:
+
+Sum = 30
+
+
+---
+
+11. What is pointer arithmetic?
+Pointer arithmetic refers to performing operations like addition, subtraction, increment, or decrement on pointers.
+
+Example:
+
+int arr[5] = {1,2,3,4,5};
+int *p = arr;
+printf("%d", *(p+2)); // prints 3
+
+
+---
+
+12. Write a program to traverse an array using a pointer.
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    int *p = arr;
+    for (int i = 0; i < 5; i++) {
+        printf("%d ", *(p + i));
+    }
+    return 0;
+}
+
+Output:
+
+10 20 30 40 50
+
+
+---
+
+13. Write a program to swap two numbers using pointers.
+
+#include <stdio.h>
+int main() {
+    int a = 5, b = 10, *p1 = &a, *p2 = &b, temp;
+    temp = *p1;
+    *p1 = *p2;
+    *p2 = temp;
+    printf("a = %d, b = %d", a, b);
+    return 0;
+}
+
+Output:
+
+a = 10, b = 5
+
+
+---
+
+14. What is a pointer to pointer?
+A pointer to pointer is a pointer that stores the address of another pointer.
+
+int a = 10;
+int *p = &a;
+int **pp = &p;
+
+
+---
+
+15. Write a program using a pointer to pointer.
+
+#include <stdio.h>
+int main() {
+    int a = 100;
+    int *p = &a;
+    int **pp = &p;
+    printf("Value = %d", **pp);
+    return 0;
+}
+
+Output:
+
+Value = 100
+
+
+---
+
+16. What is the use of dynamic memory allocation in C?
+It allows allocation of memory at runtime using pointers, rather than fixed memory during compile-time.
+
+
+---
+
+17. Name the functions used for dynamic memory allocation.
+
+malloc() – allocate memory
+
+calloc() – allocate and initialize memory
+
+realloc() – resize memory
+
+free() – free memory
+
+
+
+---
+
+18. Write a program to allocate memory dynamically for an integer.
+
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int *p = (int*)malloc(sizeof(int));
+    *p = 50;
+    printf("Value = %d", *p);
+    free(p);
+    return 0;
+}
+
+Output:
+
+Value = 50
+
+
+---
+
+19. Write a program to create a dynamic array using malloc.
+
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int n;
+    printf("Enter size: ");
+    scanf("%d", &n);
+    int *arr = (int*)malloc(n * sizeof(int));
+    for (int i = 0; i < n; i++) {
+        arr[i] = i+1;
+        printf("%d ", arr[i]);
+    }
+    free(arr);
+    return 0;
+}
+
+Output:
+
+Enter size: 5
+1 2 3 4 5
+
+
+---
+
+20. What are common pointer mistakes in C?
+
+Using uninitialized pointers
+
+Dereferencing NULL pointers
+
+Memory leaks (not using free())
+
+Accessing memory after it is freed (dangling pointers)
+
