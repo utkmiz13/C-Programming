@@ -1,0 +1,218 @@
+Class 17 – Pointers in C (Questions and Answers)
+
+
+---
+
+1. What is a pointer in C?
+A pointer is a variable that stores the memory address of another variable. Pointers are used for dynamic memory, arrays, and function arguments.
+
+
+---
+
+2. How do you declare a pointer?
+
+data_type *pointer_name;
+
+Example:
+
+int *ptr; // pointer to integer
+
+
+---
+
+3. How do you assign the address of a variable to a pointer?
+Use the address-of operator &:
+
+int x = 10;
+int *ptr = &x;
+
+
+---
+
+4. How do you access the value pointed by a pointer?
+Use the dereference operator *:
+
+int x = 10;
+int *ptr = &x;
+printf("%d", *ptr); // prints 10
+
+
+---
+
+5. Write a program to demonstrate a basic pointer.
+
+#include <stdio.h>
+int main() {
+    int a = 20;
+    int *p = &a;
+    printf("Value = %d, Address = %p", *p, p);
+    return 0;
+}
+
+Output: Value = 20, Address = 0x7ffd... (address varies)
+
+
+---
+
+6. What is a null pointer?
+A null pointer is a pointer that does not point to any memory location and is initialized as NULL.
+
+
+---
+
+7. Write a program to demonstrate a null pointer.
+
+#include <stdio.h>
+int main() {
+    int *p = NULL;
+    if(p == NULL) printf("Pointer is null");
+    return 0;
+}
+
+Output: Pointer is null
+
+
+---
+
+8. What is a void pointer?
+A void pointer is a generic pointer that can point to any data type. It needs type casting to dereference.
+
+
+---
+
+9. Write a program to demonstrate a void pointer.
+
+#include <stdio.h>
+int main() {
+    int a = 10;
+    void *p = &a;
+    printf("%d", *(int*)p);
+    return 0;
+}
+
+Output: 10
+
+
+---
+
+10. What is pointer arithmetic?
+Pointer arithmetic allows adding or subtracting integers to pointers to traverse memory locations of arrays or structures.
+
+
+---
+
+11. Write a program to demonstrate pointer arithmetic with arrays.
+
+#include <stdio.h>
+int main() {
+    int arr[3] = {10,20,30};
+    int *p = arr;
+    for(int i = 0; i < 3; i++) {
+        printf("%d ", *(p+i));
+    }
+    return 0;
+}
+
+Output: 10 20 30
+
+
+---
+
+12. What is a pointer to pointer?
+A pointer that stores the address of another pointer is called a pointer to pointer.
+
+Example: int **pp;
+
+
+---
+
+13. Write a program to demonstrate a pointer to pointer.
+
+#include <stdio.h>
+int main() {
+    int a = 50;
+    int *p = &a;
+    int **pp = &p;
+    printf("Value = %d", **pp);
+    return 0;
+}
+
+Output: Value = 50
+
+
+---
+
+14. What is a dangling pointer?
+A dangling pointer points to memory that has been freed or deleted, leading to undefined behavior if accessed.
+
+
+---
+
+15. How do you prevent dangling pointers?
+After freeing memory, set the pointer to NULL:
+
+free(p);
+p = NULL;
+
+
+---
+
+16. What is a wild pointer?
+A wild pointer is an uninitialized pointer pointing to an unknown location. It should be initialized before use.
+
+
+---
+
+17. Write a program using dynamic memory allocation with pointers.
+
+#include <stdio.h>
+#include <stdlib.h>
+int main() {
+    int *p = (int*)malloc(sizeof(int));
+    *p = 100;
+    printf("Value = %d", *p);
+    free(p);
+    return 0;
+}
+
+Output: Value = 100
+
+
+---
+
+18. What are the uses of pointers in C?
+
+Dynamic memory allocation
+
+Passing arguments to functions by reference
+
+Efficient array handling
+
+Implementing data structures like linked lists
+
+
+
+---
+
+19. How are pointers passed to functions?
+Pointers can be passed by value, which allows the function to modify the original variable.
+
+
+---
+
+20. Write a program to swap two numbers using pointers.
+
+#include <stdio.h>
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main() {
+    int x = 10, y = 20;
+    swap(&x, &y);
+    printf("x = %d, y = %d", x, y);
+    return 0;
+}
+
+Output: x = 20, y = 10
