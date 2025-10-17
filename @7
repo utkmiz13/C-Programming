@@ -1,0 +1,346 @@
+
+Class 7 – Strings in C (Questions and Answers)
+
+
+---
+
+1. What is a string in C?
+A string in C is a sequence of characters terminated by a null character ('\0'). It is stored as a character array.
+
+
+---
+
+2. How do you declare and initialize a string?
+
+char str[10] = "Hello";
+
+or
+
+char str[] = {'H', 'e', 'l', 'l', 'o', '\0'};
+
+
+---
+
+3. How can you take string input from the user?
+
+#include <stdio.h>
+int main() {
+    char name[20];
+    printf("Enter your name: ");
+    scanf("%s", name);
+    printf("Hello %s", name);
+    return 0;
+}
+
+Output:
+
+Enter your name: Parth
+Hello Parth
+
+
+---
+
+4. Why should we avoid using scanf() for multi-word strings?
+Because scanf("%s") stops reading input when it encounters a space. To take full sentences, we use gets() (deprecated) or fgets().
+
+
+---
+
+5. How can you take a sentence as input?
+
+#include <stdio.h>
+int main() {
+    char sentence[50];
+    printf("Enter a sentence: ");
+    fgets(sentence, sizeof(sentence), stdin);
+    printf("You entered: %s", sentence);
+    return 0;
+}
+
+
+---
+
+6. What is the function of puts() in C?
+puts() displays a string on the screen and automatically adds a newline at the end.
+
+Example:
+
+puts("Welcome to C programming");
+
+
+---
+
+7. What is the function of gets() in C?
+gets() was used to take input strings including spaces, but it is unsafe and deprecated because it can cause buffer overflow. Use fgets() instead.
+
+
+---
+
+8. What is strlen() used for?
+It is used to find the length of a string (number of characters before '\0').
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "Hello";
+    printf("Length = %lu", strlen(str));
+    return 0;
+}
+
+Output:
+
+Length = 5
+
+
+---
+
+9. What does strcpy() do?
+It copies one string to another.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char s1[20] = "Hello", s2[20];
+    strcpy(s2, s1);
+    printf("Copied String: %s", s2);
+    return 0;
+}
+
+Output:
+
+Copied String: Hello
+
+
+---
+
+10. What is the use of strcat()?
+It joins (concatenates) two strings.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char a[20] = "Hello ";
+    char b[20] = "World";
+    strcat(a, b);
+    printf("%s", a);
+    return 0;
+}
+
+Output:
+
+Hello World
+
+
+---
+
+11. How does strcmp() work?
+strcmp() compares two strings lexicographically (alphabetically).
+It returns 0 if both strings are equal, a negative number if first < second, and a positive number if first > second.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char s1[] = "apple";
+    char s2[] = "banana";
+    int result = strcmp(s1, s2);
+    printf("%d", result);
+    return 0;
+}
+
+Output:
+
+Negative value (because "apple" < "banana")
+
+
+---
+
+12. Write a program to reverse a string using strrev().
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[20] = "Hello";
+    strrev(str);
+    printf("Reversed: %s", str);
+    return 0;
+}
+
+Output:
+
+Reversed: olleH
+
+(Note: strrev() is not part of the standard C library; it works in Turbo C but not in GCC. You can manually reverse a string as shown next.)
+
+
+---
+
+13. Write a program to reverse a string manually.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[20] = "Hello";
+    int len = strlen(str);
+    for (int i = len - 1; i >= 0; i--) {
+        printf("%c", str[i]);
+    }
+    return 0;
+}
+
+Output:
+
+olleH
+
+
+---
+
+14. Write a program to count the number of vowels in a string.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[50] = "C Programming";
+    int count = 0;
+    for (int i = 0; i < strlen(str); i++) {
+        char ch = tolower(str[i]);
+        if (ch=='a'||ch=='e'||ch=='i'||ch=='o'||ch=='u')
+            count++;
+    }
+    printf("Vowels: %d", count);
+    return 0;
+}
+
+Output:
+
+Vowels: 3
+
+
+---
+
+15. Write a program to check if a string is a palindrome.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[20] = "level";
+    int len = strlen(str);
+    int flag = 1;
+    for (int i = 0; i < len/2; i++) {
+        if (str[i] != str[len - i - 1]) {
+            flag = 0;
+            break;
+        }
+    }
+    if (flag)
+        printf("Palindrome");
+    else
+        printf("Not Palindrome");
+    return 0;
+}
+
+Output:
+
+Palindrome
+
+
+---
+
+16. Write a program to count words in a sentence.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[100] = "C is very powerful";
+    int count = 1;
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] == ' ' && str[i+1] != ' ')
+            count++;
+    }
+    printf("Words: %d", count);
+    return 0;
+}
+
+Output:
+
+Words: 3
+
+
+---
+
+17. Write a program to convert a string to uppercase.
+
+#include <stdio.h>
+#include <ctype.h>
+int main() {
+    char str[20] = "hello";
+    for (int i = 0; str[i] != '\0'; i++) {
+        str[i] = toupper(str[i]);
+    }
+    printf("%s", str);
+    return 0;
+}
+
+Output:
+
+HELLO
+
+
+---
+
+18. Write a program to convert a string to lowercase.
+
+#include <stdio.h>
+#include <ctype.h>
+int main() {
+    char str[20] = "WELCOME";
+    for (int i = 0; str[i] != '\0'; i++) {
+        str[i] = tolower(str[i]);
+    }
+    printf("%s", str);
+    return 0;
+}
+
+Output:
+
+welcome
+
+
+---
+
+19. Write a program to find the frequency of each character in a string.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "banana";
+    int freq[256] = {0};
+    for (int i = 0; str[i] != '\0'; i++) {
+        freq[(unsigned char)str[i]]++;
+    }
+    for (int i = 0; i < 256; i++) {
+        if (freq[i] != 0)
+            printf("%c = %d\n", i, freq[i]);
+    }
+    return 0;
+}
+
+Output:
+
+a = 3
+b = 1
+n = 2
+
+
+---
+
+20. What are some important string handling functions in C?
+
+Function	Description
+
+strlen()	Finds length of string
+strcpy()	Copies one string to another
+strcat()	Concatenates two strings
+strcmp()	Compares two strings
+strrev()	Reverses string (non-standard)
+strupr() / strlwr()	Converts case (non-standard)
+
