@@ -1,0 +1,217 @@
+
+Class 22 – Preprocessor Directives & Macros in C (Questions and Answers)
+
+
+---
+
+1. What is a preprocessor directive in C?
+A preprocessor directive is a command that gives instructions to the compiler before actual compilation starts. It begins with #.
+
+
+---
+
+2. Name some common preprocessor directives.
+
+#include – include header files
+
+#define – define constants or macros
+
+#undef – undefine a macro
+
+#if, #ifdef, #ifndef, #else, #elif, #endif – conditional compilation
+
+#error – generate compilation error
+
+#pragma – special instructions to compiler
+
+
+
+---
+
+3. What is #include used for?
+#include is used to include header files in a program.
+Example:
+
+#include <stdio.h>
+#include "myheader.h"
+
+
+---
+
+4. Difference between <filename> and "filename" in #include
+
+<filename> – searches in standard directories
+
+"filename" – searches in current directory first, then standard directories
+
+
+
+---
+
+5. What is #define used for?
+#define is used to define constants or macros.
+Example:
+
+#define PI 3.14
+#define SQUARE(x) ((x)*(x))
+
+
+---
+
+6. Write a program using #define for a constant.
+
+#include <stdio.h>
+#define PI 3.14
+int main() {
+    float r = 2.0;
+    printf("Area = %.2f", PI*r*r);
+    return 0;
+}
+
+Output: Area = 12.56
+
+
+---
+
+7. What is a macro in C?
+A macro is a fragment of code defined by #define that is substituted before compilation.
+
+
+---
+
+8. Write a macro to find the square of a number.
+
+#include <stdio.h>
+#define SQUARE(x) ((x)*(x))
+int main() {
+    int a = 5;
+    printf("Square = %d", SQUARE(a));
+    return 0;
+}
+
+Output: Square = 25
+
+
+---
+
+9. What is the difference between a constant and a macro?
+
+Feature	Constant	Macro
+
+Type	Has a type	No type, textual substitution
+Memory	Allocated	No memory allocated
+Scope	Can be local	Global substitution
+Debugging	Easier	Harder
+
+
+
+---
+
+10. What is #undef used for?
+#undef is used to undefine a macro:
+
+#undef PI
+
+
+---
+
+11. What is conditional compilation?
+Conditional compilation includes or excludes parts of code depending on certain conditions using #if, #ifdef, #ifndef, #else, #endif.
+
+
+---
+
+12. Write a program using #ifdef.
+
+#include <stdio.h>
+#define DEBUG
+int main() {
+#ifdef DEBUG
+    printf("Debug mode is ON\n");
+#endif
+    return 0;
+}
+
+Output: Debug mode is ON
+
+
+---
+
+13. What is the difference between #if and #ifdef?
+
+#if – tests a constant expression
+
+#ifdef – checks if a macro is defined
+
+
+
+---
+
+14. What is #ifndef?
+#ifndef stands for “if not defined” and executes code only if the macro is not defined.
+
+
+---
+
+15. Write a program using #ifndef.
+
+#include <stdio.h>
+#ifndef PI
+#define PI 3.14
+#endif
+int main() {
+    printf("PI = %.2f", PI);
+    return 0;
+}
+
+Output: PI = 3.14
+
+
+---
+
+16. What is #error used for?
+#error generates a compile-time error with a message:
+
+#error "This program cannot compile"
+
+
+---
+
+17. What is #pragma?
+#pragma provides special instructions to the compiler, such as controlling warnings.
+
+
+---
+
+18. Can macros take parameters?
+Yes, macros can take parameters:
+
+#define ADD(a,b) ((a)+(b))
+
+
+---
+
+19. Write a macro to find the maximum of two numbers.
+
+#include <stdio.h>
+#define MAX(a,b) ((a)>(b)?(a):(b))
+int main() {
+    int x=10, y=20;
+    printf("Max = %d", MAX(x,y));
+    return 0;
+}
+
+Output: Max = 20
+
+
+---
+
+20. Advantages of preprocessor directives
+
+Avoids magic numbers using constants
+
+Enables conditional compilation
+
+Simplifies code reuse with header files
+
+Improves readability and maintainability
