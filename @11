@@ -1,0 +1,267 @@
+Class 11 – File Handling in C (Questions and Answers)
+
+
+---
+
+1. What is file handling in C?
+File handling in C allows a program to store data permanently on disk and read/write data from/to files.
+
+
+---
+
+2. What are the types of files in C?
+
+Text files: Store data in readable text format
+
+Binary files: Store data in binary format
+
+
+
+---
+
+3. How do you open a file in C?
+Using fopen() function:
+
+FILE *fp = fopen("filename.txt", "mode");
+
+Common modes:
+
+"r" – read
+
+"w" – write (overwrite)
+
+"a" – append
+
+"rb", "wb", "ab" – binary modes
+
+
+
+---
+
+4. Write a program to create a text file and write data into it.
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("file.txt", "w");
+    fprintf(fp, "Hello, File Handling!");
+    fclose(fp);
+    printf("Data written successfully.");
+    return 0;
+}
+
+Output:
+
+Data written successfully.
+
+
+---
+
+5. How do you read data from a file?
+Using fscanf(), fgets(), or fgetc() functions.
+
+
+---
+
+6. Write a program to read data from a file using fgets().
+
+#include <stdio.h>
+int main() {
+    char str[100];
+    FILE *fp = fopen("file.txt", "r");
+    if (fp == NULL) {
+        printf("File not found");
+        return 1;
+    }
+    while (fgets(str, sizeof(str), fp) != NULL) {
+        printf("%s", str);
+    }
+    fclose(fp);
+    return 0;
+}
+
+Output:
+
+Hello, File Handling!
+
+
+---
+
+7. What is the difference between fgetc() and fgets()?
+
+fgetc() reads one character at a time
+
+fgets() reads one line or multiple characters
+
+
+
+---
+
+8. Write a program to read a file character by character using fgetc().
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("file.txt", "r");
+    char ch;
+    while ((ch = fgetc(fp)) != EOF) {
+        printf("%c", ch);
+    }
+    fclose(fp);
+    return 0;
+}
+
+Output:
+
+Hello, File Handling!
+
+
+---
+
+9. How do you append data to a file?
+Open the file in "a" mode using fopen().
+
+
+---
+
+10. Write a program to append text to a file.
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("file.txt", "a");
+    fprintf(fp, "\nAppended text.");
+    fclose(fp);
+    printf("Data appended.");
+    return 0;
+}
+
+Output:
+
+Data appended.
+
+
+---
+
+11. What is fclose() used for?
+It closes a file after operations, releasing resources.
+
+
+---
+
+12. Write a program to copy content from one file to another.
+
+#include <stdio.h>
+int main() {
+    FILE *src = fopen("file.txt", "r");
+    FILE *dest = fopen("copy.txt", "w");
+    char ch;
+    while ((ch = fgetc(src)) != EOF) {
+        fputc(ch, dest);
+    }
+    fclose(src);
+    fclose(dest);
+    printf("File copied successfully.");
+    return 0;
+}
+
+Output:
+
+File copied successfully.
+
+
+---
+
+13. What is the difference between text and binary files?
+
+Feature	Text File	Binary File
+
+Format	Readable text	Binary data
+Storage	ASCII	Exact memory representation
+Example	.txt, .csv	.dat, .exe
+
+
+
+---
+
+14. How do you write binary data to a file?
+Use fwrite() function.
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("data.bin", "wb");
+    int num = 100;
+    fwrite(&num, sizeof(num), 1, fp);
+    fclose(fp);
+    printf("Binary data written.");
+    return 0;
+}
+
+Output:
+
+Binary data written.
+
+
+---
+
+15. How do you read binary data from a file?
+Use fread() function.
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("data.bin", "rb");
+    int num;
+    fread(&num, sizeof(num), 1, fp);
+    printf("Number = %d", num);
+    fclose(fp);
+    return 0;
+}
+
+Output:
+
+Number = 100
+
+
+---
+
+16. What is ftell() used for?
+ftell() returns the current position of the file pointer in the file.
+
+
+---
+
+17. What is fseek() used for?
+fseek() moves the file pointer to a specified location in a file.
+Syntax:
+
+fseek(fp, offset, whence);
+
+whence can be SEEK_SET, SEEK_CUR, or SEEK_END.
+
+
+---
+
+18. What is rewind() in C file handling?
+rewind(fp) moves the file pointer back to the beginning of the file.
+
+
+---
+
+19. How can you check for end of file?
+Using feof(fp) function. Returns non-zero if end-of-file is reached.
+
+
+---
+
+20. List important file handling functions in C.
+
+fopen() – open a file
+
+fclose() – close a file
+
+fprintf(), fscanf() – write/read formatted text
+
+fputc(), fgetc() – write/read character
+
+fwrite(), fread() – write/read binary data
+
+fseek(), ftell(), rewind() – manage file pointer
+
+feof() – check end-of-file
