@@ -1,0 +1,163 @@
+Q1. Declare an integer variable and print its value.
+
+#include <stdio.h>
+int main() {
+    int num = 25;
+    printf("Number = %d", num);
+    return 0;
+}
+
+📤 Output:
+
+Number = 25
+
+
+---
+
+Q2. Write a program to add two float numbers.
+
+#include <stdio.h>
+int main() {
+    float a = 4.5, b = 5.5;
+    printf("Sum = %.1f", a + b);
+    return 0;
+}
+
+📤 Output:
+
+Sum = 10.0
+
+
+---
+
+Q3. Write a program to find the average of 5 numbers.
+
+#include <stdio.h>
+int main() {
+    int a = 10, b = 20, c = 30, d = 40, e = 50;
+    printf("Average = %d", (a + b + c + d + e) / 5);
+    return 0;
+}
+
+📤 Output:
+
+Average = 30
+
+
+---
+
+Q4. Write a program to demonstrate all arithmetic operators.
+
+#include <stdio.h>
+int main() {
+    int a = 8, b = 3;
+    printf("%d %d %d %d %d", a + b, a - b, a * b, a / b, a % b);
+    return 0;
+}
+
+📤 Output:
+
+11 5 24 2 2
+
+
+---
+
+Q5. Write a program to check which number is greater.
+
+#include <stdio.h>
+int main() {
+    int a = 10, b = 20;
+    if(a > b)
+        printf("A is greater");
+    else
+        printf("B is greater");
+    return 0;
+}
+
+📤 Output:
+
+B is greater
+
+
+---
+
+Q6. Write a program to swap two float numbers.
+
+#include <stdio.h>
+int main() {
+    float a = 3.2, b = 7.5, temp;
+    temp = a;
+    a = b;
+    b = temp;
+    printf("a=%.1f, b=%.1f", a, b);
+    return 0;
+}
+
+📤 Output:
+
+a=7.5, b=3.2
+
+
+---
+
+Q7. Find area and circumference of a circle.
+
+#include <stdio.h>
+int main() {
+    float r = 4, area, circ;
+    area = 3.14 * r * r;
+    circ = 2 * 3.14 * r;
+    printf("Area=%.2f, Circumference=%.2f", area, circ);
+    return 0;
+}
+
+📤 Output:
+
+Area=50.24, Circumference=25.12
+
+
+---
+
+Q8. Demonstrate logical operators.
+
+#include <stdio.h>
+int main() {
+    int x = 5, y = 10;
+    printf("%d", (x < y) && (y > 3));
+    return 0;
+}
+
+📤 Output:
+
+1
+
+
+---
+
+Q9. Demonstrate increment operator.
+
+#include <stdio.h>
+int main() {
+    int a = 5;
+    printf("%d\n", a++);
+    printf("%d", a);
+    return 0;
+}
+
+📤 Output:
+
+5
+6
+
+
+---
+
+Q10. Demonstrate decrement operator.
+
+#include <stdio.h>
+int main() {
+    int a = 8;
+    printf("%d\n", a--);
+    printf("%d", a);
+    return 0;
+}
