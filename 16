@@ -1,0 +1,247 @@
+lass 16 – Strings in C (Questions and Answers)
+
+
+---
+
+1. What is a string in C?
+A string in C is an array of characters terminated by a null character \0. It is used to store text.
+
+
+---
+
+2. How do you declare a string in C?
+
+char str[20]; // declares a string of size 20
+
+
+---
+
+3. How do you initialize a string in C?
+
+char str1[10] = "Hello"; // initializes with "Hello"
+char str2[] = "World";   // size is automatically determined
+
+
+---
+
+4. How do you read a string from the user?
+
+Using scanf() (reads until space):
+
+
+char str[20];
+scanf("%s", str);
+
+Using gets() (reads a line including spaces, unsafe):
+
+
+char str[50];
+gets(str);
+
+Using fgets() (safe method):
+
+
+char str[50];
+fgets(str, sizeof(str), stdin);
+
+
+---
+
+5. How do you print a string?
+Using printf() with %s format specifier:
+
+char str[] = "Hello";
+printf("%s", str);
+
+
+---
+
+6. What are some common string functions in C?
+
+strlen() – length of string
+
+strcpy() – copy string
+
+strcat() – concatenate strings
+
+strcmp() – compare strings
+
+strchr() – find character
+
+strstr() – find substring
+
+
+
+---
+
+7. Write a program to find the length of a string.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "Hello";
+    printf("Length = %lu", strlen(str));
+    return 0;
+}
+
+Output: Length = 5
+
+
+---
+
+8. Write a program to copy one string to another.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[] = "Hello", str2[20];
+    strcpy(str2, str1);
+    printf("Copied string = %s", str2);
+    return 0;
+}
+
+Output: Copied string = Hello
+
+
+---
+
+9. Write a program to concatenate two strings.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[20] = "Hello ", str2[] = "World";
+    strcat(str1, str2);
+    printf("Concatenated = %s", str1);
+    return 0;
+}
+
+Output: Concatenated = Hello World
+
+
+---
+
+10. Write a program to compare two strings.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[] = "Hello", str2[] = "World";
+    if(strcmp(str1, str2) == 0) printf("Equal");
+    else printf("Not Equal");
+    return 0;
+}
+
+Output: Not Equal
+
+
+---
+
+11. How do you find a character in a string?
+Use strchr(str, char) to return a pointer to the first occurrence.
+
+
+---
+
+12. Write a program to find a character in a string.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "Hello";
+    char *ptr = strchr(str, 'l');
+    printf("First occurrence = %c", *ptr);
+    return 0;
+}
+
+Output: First occurrence = l
+
+
+---
+
+13. How do you find a substring in a string?
+Use strstr(str, substr) to return a pointer to the first occurrence of the substring.
+
+
+---
+
+14. Write a program to find a substring.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "Hello World", *ptr;
+    ptr = strstr(str, "World");
+    printf("Substring found at: %ld", ptr - str);
+    return 0;
+}
+
+Output: Substring found at: 6
+
+
+---
+
+15. How do you convert string to uppercase or lowercase?
+Use toupper() and tolower() from ctype.h in a loop over each character.
+
+
+---
+
+16. Write a program to convert a string to uppercase.
+
+#include <stdio.h>
+#include <ctype.h>
+int main() {
+    char str[] = "hello";
+    for(int i = 0; str[i]; i++) str[i] = toupper(str[i]);
+    printf("%s", str);
+    return 0;
+}
+
+Output: HELLO
+
+
+---
+
+17. How do you reverse a string?
+Use a loop swapping characters from start and end.
+
+
+---
+
+18. Write a program to reverse a string.
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "Hello";
+    int n = strlen(str);
+    for(int i = 0; i < n/2; i++) {
+        char temp = str[i];
+        str[i] = str[n-i-1];
+        str[n-i-1] = temp;
+    }
+    printf("Reversed = %s", str);
+    return 0;
+}
+
+Output: Reversed = olleH
+
+
+---
+
+19. How are strings stored in memory?
+Strings are stored as arrays of characters in contiguous memory, ending with a null character \0.
+
+
+---
+
+20. List advantages of using strings in C.
+
+Easy to store and manipulate text
+
+Built-in functions for common operations
+
+Can handle large text data efficiently
+
+Useful in file handling, user input, and text processing
