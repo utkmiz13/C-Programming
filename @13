@@ -1,0 +1,215 @@
+Class 13 – Storage Classes in C (Questions and Answers)
+
+
+---
+
+1. What is a storage class in C?
+A storage class defines scope, lifetime, and visibility of variables or functions in a program.
+
+
+---
+
+2. How many storage classes are there in C?
+There are four storage classes in C:
+
+1. auto
+
+
+2. register
+
+
+3. static
+
+
+4. extern
+
+
+
+
+---
+
+3. What is the default storage class of a local variable?
+auto is the default storage class for local variables.
+
+
+---
+
+4. What is the auto storage class?
+auto variables are local to the block, created when the block is entered, and destroyed when the block is exited.
+
+Example:
+
+#include <stdio.h>
+int main() {
+    auto int a = 10;
+    printf("%d", a);
+    return 0;
+}
+
+Output:
+
+10
+
+
+---
+
+5. What is the register storage class?
+register suggests the compiler to store variable in CPU register for faster access. Cannot use & with register variables.
+
+Example:
+
+#include <stdio.h>
+int main() {
+    register int a = 5;
+    printf("%d", a);
+    return 0;
+}
+
+Output:
+
+5
+
+
+---
+
+6. What is the static storage class?
+static variables retain their value between function calls. Scope is local, but lifetime is throughout the program.
+
+
+---
+
+7. Write a program to demonstrate static variable.
+
+#include <stdio.h>
+void func() {
+    static int count = 0;
+    count++;
+    printf("%d\n", count);
+}
+int main() {
+    func();
+    func();
+    func();
+    return 0;
+}
+
+Output:
+
+1
+2
+3
+
+
+---
+
+8. What is the extern storage class?
+extern is used to declare a global variable that is defined in another file or outside the current function.
+
+
+---
+
+9. Write a program to demonstrate extern variable.
+
+#include <stdio.h>
+int a = 100; // global variable
+void display();
+int main() {
+    extern int a;
+    display();
+    return 0;
+}
+void display() {
+    extern int a;
+    printf("%d", a);
+}
+
+Output:
+
+100
+
+
+---
+
+10. Can static be used with global variables?
+Yes, static global variables limit the scope to the file they are defined in.
+
+
+---
+
+11. What is the scope of auto variable?
+Scope is local to the block in which it is declared.
+
+
+---
+
+12. What is the scope of register variable?
+Scope is local to the block in which it is declared.
+
+
+---
+
+13. What is the scope of static variable?
+
+For local static variables: local to the function/block, but retains value across calls.
+
+For global static variables: scope is limited to the file.
+
+
+
+---
+
+14. What is the scope of extern variable?
+Global, accessible across multiple files.
+
+
+---
+
+15. What is the lifetime of auto and register variables?
+Lifetime is only during execution of the block in which they are declared.
+
+
+---
+
+16. What is the lifetime of static variable?
+Lifetime is entire program execution, value persists between function calls.
+
+
+---
+
+17. What is the lifetime of extern variable?
+Lifetime is entire program execution (global variable).
+
+
+---
+
+18. Difference between auto and static local variables?
+
+Feature	auto	static
+
+Lifetime	Block execution	Entire program
+Value	Re-initialized each call	Retains value
+Scope	Local	Local
+
+
+
+---
+
+19. Difference between extern and global variables?
+
+Global variables can be used directly in the file.
+
+extern is used to refer to a global variable defined in another file.
+
+
+
+---
+
+20. List all storage classes with their scope and lifetime.
+
+Storage Class	Scope	Lifetime
+
+auto	Local	Block execution
+register	Local	Block execution
+static (local)	Local	Entire program
+static (global)	File	Entire program
+extern	Global	Entire program
