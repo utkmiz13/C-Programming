@@ -1,0 +1,209 @@
+
+Class 20 – File Handling in C (Questions and Answers)
+
+
+---
+
+1. What is file handling in C?
+File handling in C allows a program to store data permanently in files on disk and read or write data as needed.
+
+
+---
+
+2. What are the types of files in C?
+
+Text files: store data as readable characters (.txt)
+
+Binary files: store data in binary format (.bin)
+
+
+
+---
+
+3. How do you open a file in C?
+Use fopen() function:
+
+FILE *fp = fopen("filename.txt", "mode");
+
+
+---
+
+4. What are the modes in fopen()?
+
+"r" – read
+
+"w" – write (creates or overwrites)
+
+"a" – append
+
+"r+" – read and write
+
+"w+" – write and read
+
+"a+" – append and read
+
+
+
+---
+
+5. How do you close a file?
+Use fclose(FILE *fp):
+
+fclose(fp);
+
+
+---
+
+6. Write a program to create a text file and write data into it.
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("file.txt", "w");
+    fprintf(fp, "Hello, World!\n");
+    fclose(fp);
+    return 0;
+}
+
+Output: Creates file.txt with content Hello, World!
+
+
+---
+
+7. Write a program to read data from a text file.
+
+#include <stdio.h>
+int main() {
+    char str[50];
+    FILE *fp = fopen("file.txt", "r");
+    while(fgets(str, 50, fp) != NULL) {
+        printf("%s", str);
+    }
+    fclose(fp);
+    return 0;
+}
+
+Output: Hello, World!
+
+
+---
+
+8. How do you append data to an existing file?
+Open file in "a" mode:
+
+FILE *fp = fopen("file.txt", "a");
+fprintf(fp, "New Line\n");
+fclose(fp);
+
+
+---
+
+9. How do you write data in binary files?
+Use fwrite() function:
+
+fwrite(&variable, sizeof(variable), 1, fp);
+
+
+---
+
+10. How do you read data from binary files?
+Use fread() function:
+
+fread(&variable, sizeof(variable), 1, fp);
+
+
+---
+
+11. Write a program to write integers into a binary file.
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("data.bin", "wb");
+    int arr[3] = {10, 20, 30};
+    fwrite(arr, sizeof(int), 3, fp);
+    fclose(fp);
+    return 0;
+}
+
+
+---
+
+12. Write a program to read integers from a binary file.
+
+#include <stdio.h>
+int main() {
+    FILE *fp = fopen("data.bin", "rb");
+    int arr[3];
+    fread(arr, sizeof(int), 3, fp);
+    for(int i = 0; i < 3; i++) printf("%d ", arr[i]);
+    fclose(fp);
+    return 0;
+}
+
+Output: 10 20 30
+
+
+---
+
+13. How do you check if a file was opened successfully?
+Check if the file pointer is NULL:
+
+if(fp == NULL) printf("File not found");
+
+
+---
+
+14. What is the difference between text and binary files?
+
+Text: human-readable, line-based
+
+Binary: machine-readable, exact representation of data
+
+
+
+---
+
+15. How do you delete a file in C?
+Use remove("filename"):
+
+remove("file.txt");
+
+
+---
+
+16. How do you rename a file in C?
+Use rename("oldname","newname"):
+
+rename("file.txt", "newfile.txt");
+
+
+---
+
+17. How do you move the file pointer?
+Use fseek() to move to a specific position:
+
+fseek(fp, offset, SEEK_SET/SEEK_CUR/SEEK_END);
+
+
+---
+
+18. How do you find the current position of the file pointer?
+Use ftell(FILE *fp) to get the current position in bytes.
+
+
+---
+
+19. How do you reset the file pointer to the beginning of the file?
+Use rewind(FILE *fp).
+
+
+---
+
+20. Give some advantages of file handling in C.
+
+Store data permanently
+
+Read/write large data efficiently
+
+Data sharing between programs
+
+Supports both text and binary operations
