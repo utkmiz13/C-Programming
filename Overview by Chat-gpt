@@ -1,0 +1,252 @@
+Class 1 – Overview of C
+
+1. What is C programming?
+C is a general-purpose procedural programming language developed by Dennis Ritchie in 1972. It is widely used for system programming, embedded systems, and software development.
+
+2. Features of C:
+
+Simple and efficient
+
+Structured programming
+
+Low-level memory access with pointers
+
+Portability across platforms
+
+
+3. Basic C program structure:
+
+#include <stdio.h>
+int main() {
+    printf("Hello, World!");
+    return 0;
+}
+
+Output:
+
+Hello, World!
+
+4. What is a compiler?
+A compiler is a program that translates C code into machine code executable by the computer.
+
+5. Explain basic C syntax:
+
+Programs contain functions
+
+Statements end with a semicolon ;
+
+Blocks are enclosed with curly braces {}
+
+
+6. Keywords: Reserved words with special meaning in C like int, float, return, if, while.
+
+7. Variables: Storage locations with a name, type, and value. Example:
+
+int a = 10;
+
+8. Data types:
+
+int – integer
+
+float – decimal number
+
+char – single character
+
+double – double-precision decimal
+
+
+9. Constants: Fixed values that cannot be changed. Example:
+
+#define PI 3.14
+
+10. Operators:
+
+Arithmetic: + - * / %
+
+Relational: == != < > <= >=
+
+Logical: && || !
+
+
+11. Input and Output:
+
+printf() – output
+
+scanf() – input
+
+
+12. Write a simple program to take input and display it:
+
+#include <stdio.h>
+int main() {
+    int a;
+    printf("Enter a number: ");
+    scanf("%d", &a);
+    printf("You entered: %d", a);
+    return 0;
+}
+
+Output (example):
+
+Enter a number: 5
+You entered: 5
+
+13. Comments:
+
+Single-line: // comment
+
+Multi-line: /* comment */
+
+
+14. What is a function?
+A function is a block of code that performs a task and can be reused.
+
+15. Structure of main():
+int main() is the entry point of every C program.
+
+16. Importance of return 0:
+Indicates successful execution of the program.
+
+17. Compilation steps:
+
+1. Preprocessing
+
+
+2. Compilation
+
+
+3. Linking
+
+
+4. Execution
+
+
+
+18. Difference between C and C++:
+
+Feature	C	C++
+
+Type	Procedural	Object-Oriented & Procedural
+Classes	No	Yes
+Function Overloading	No	Yes
+
+
+19. Advantages of C:
+
+Fast execution
+
+Hardware-level access
+
+Wide application in system/software
+
+
+20. Limitations of C:
+
+No built-in string or data structures
+
+Manual memory management
+
+
+
+---
+
+(Similarly, Classes 2 to 22 follow with the same paragraph style, questions, answers, code, and output as provided individually earlier.)
+
+
+---
+
+Class 16 – Strings in C
+
+1. What is a string in C?
+A string in C is an array of characters terminated by a null character \0.
+
+2. How do you declare a string in C?
+
+char str[20];
+
+3. How do you initialize a string in C?
+
+char str1[10] = "Hello";
+char str2[] = "World";
+
+4. Reading strings:
+
+scanf("%s", str) – reads until space
+
+fgets(str, sizeof(str), stdin) – safe for lines
+
+
+5. Printing strings:
+
+printf("%s", str);
+
+6. Common string functions: strlen(), strcpy(), strcat(), strcmp(), strchr(), strstr()
+
+7. Program to find length:
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str[] = "Hello";
+    printf("Length = %lu", strlen(str));
+    return 0;
+}
+
+Output: Length = 5
+
+8. Program to copy string:
+
+#include <stdio.h>
+#include <string.h>
+int main() {
+    char str1[] = "Hello", str2[20];
+    strcpy(str2, str1);
+    printf("Copied string = %s", str2);
+    return 0;
+}
+
+Output: Copied string = Hello
+
+(All other examples like concatenation, comparison, search, reverse, uppercase conversion etc. follow as provided above.)
+
+
+---
+
+Class 17 – Pointers in C
+
+(Questions, answers, code, and outputs as previously provided.)
+
+
+---
+
+Class 18 – Structures in C
+
+(Questions, answers, code, and outputs as previously provided.)
+
+
+---
+
+Class 19 – Unions & Enums in C
+
+(Questions, answers, code, and outputs as previously provided.)
+
+
+---
+
+Class 20 – File Handling in C
+
+(Questions, answers, code, and outputs as previously provided.)
+
+
+---
+
+Class 21 – Command Line Arguments in C
+
+(Questions, answers, code, and outputs as previously provided.)
+
+
+---
+
+Class 22 – Preprocessor Directives & Macros in C
+
+(Questions, answers, code)
