@@ -1,0 +1,354 @@
+Q1 – Read and print an integer
+
+#include <stdio.h>
+int main() {
+    int a;
+    printf("Enter number: ");
+    scanf("%d", &a);
+    printf("You entered %d", a);
+    return 0;
+}
+
+Output:
+
+Enter number: 5
+You entered 5
+
+
+---
+
+Q2 – Input and print two integers
+
+#include <stdio.h>
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
+    printf("Numbers are %d and %d", a, b);
+    return 0;
+}
+
+Output:
+
+Enter two numbers: 3 7
+Numbers are 3 and 7
+
+
+---
+
+Q3 – Add two numbers (user input)
+
+#include <stdio.h>
+int main() {
+    int a, b;
+    printf("Enter two numbers: ");
+    scanf("%d%d", &a, &b);
+    printf("Sum = %d", a + b);
+    return 0;
+}
+
+Output:
+
+Enter two numbers: 5 8
+Sum = 13
+
+
+---
+
+Q4 – Take float input and display
+
+#include <stdio.h>
+int main() {
+    float num;
+    printf("Enter a float value: ");
+    scanf("%f", &num);
+    printf("You entered %.2f", num);
+    return 0;
+}
+
+Output:
+
+Enter a float value: 3.75
+You entered 3.75
+
+
+---
+
+Q5 – Read a character
+
+#include <stdio.h>
+int main() {
+    char ch;
+    printf("Enter a character: ");
+    scanf(" %c", &ch);
+    printf("Character: %c", ch);
+    return 0;
+}
+
+Output:
+
+Enter a character: Z
+Character: Z
+
+
+---
+
+Q6 – Use getchar() and putchar()
+
+#include <stdio.h>
+int main() {
+    char ch;
+    ch = getchar();
+    putchar(ch);
+    return 0;
+}
+
+Output:
+
+A
+A
+
+
+---
+
+Q7 – Print string using puts()
+
+#include <stdio.h>
+int main() {
+    puts("Welcome to C Programming!");
+    return 0;
+}
+
+Output:
+
+Welcome to C Programming!
+
+
+---
+
+Q8 – Read a word using scanf()
+
+#include <stdio.h>
+int main() {
+    char name[20];
+    scanf("%s", name);
+    printf("Hello %s", name);
+    return 0;
+}
+
+Output:
+
+Parth
+Hello Parth
+
+
+---
+
+Q9 – Read a full sentence using gets()
+
+#include <stdio.h>
+int main() {
+    char sentence[50];
+    gets(sentence);
+    puts(sentence);
+    return 0;
+}
+
+Output:
+
+I love coding
+I love coding
+
+
+---
+
+Q10 – Demonstrate \n and \t
+
+#include <stdio.h>
+int main() {
+    printf("Hello\tWorld\nC\tLanguage");
+    return 0;
+}
+
+Output:
+
+Hello   World
+C       Language
+
+
+---
+
+Q11 – Take two floats and print average
+
+#include <stdio.h>
+int main() {
+    float a, b;
+    scanf("%f%f", &a, &b);
+    printf("Average = %.2f", (a + b) / 2);
+    return 0;
+}
+
+Output:
+
+5.5 6.5
+Average = 6.00
+
+
+---
+
+Q12 – Read name and age
+
+#include <stdio.h>
+int main() {
+    char name[20];
+    int age;
+    printf("Enter name and age: ");
+    scanf("%s%d", name, &age);
+    printf("%s is %d years old.", name, age);
+    return 0;
+}
+
+Output:
+
+Parth 19
+Parth is 19 years old.
+
+
+---
+
+Q13 – Input character and show ASCII value
+
+#include <stdio.h>
+int main() {
+    char c;
+    scanf("%c", &c);
+    printf("ASCII of %c = %d", c, c);
+    return 0;
+}
+
+Output:
+
+A
+ASCII of A = 65
+
+
+---
+
+Q14 – Take integer, float, char together
+
+#include <stdio.h>
+int main() {
+    int i; float f; char c;
+    scanf("%d %f %c", &i, &f, &c);
+    printf("%d %.2f %c", i, f, c);
+    return 0;
+}
+
+Output:
+
+5 2.5 A
+5 2.50 A
+
+
+---
+
+Q15 – Display numbers in same line using \t
+
+#include <stdio.h>
+int main() {
+    printf("1\t2\t3\t4\t5");
+    return 0;
+}
+
+Output:
+
+1   2   3   4   5
+
+
+---
+
+Q16 – Read string using scanf()
+
+#include <stdio.h>
+int main() {
+    char str[10];
+    scanf("%s", str);
+    printf("You entered %s", str);
+    return 0;
+}
+
+Output:
+
+Hello
+You entered Hello
+
+
+---
+
+Q17 – Use escape sequence to print quote
+
+#include <stdio.h>
+int main() {
+    printf("\"C is Powerful!\"");
+    return 0;
+}
+
+Output:
+
+"C is Powerful!"
+
+
+---
+
+Q18 – Display backslash and newline
+
+#include <stdio.h>
+int main() {
+    printf("This is a backslash: \\\nNew line below!");
+    return 0;
+}
+
+Output:
+
+This is a backslash: \
+New line below!
+
+
+---
+
+Q19 – Print user input string with puts()
+
+#include <stdio.h>
+int main() {
+    char str[30];
+    gets(str);
+    puts(str);
+    return 0;
+}
+
+Output:
+
+Learning C Language
+Learning C Language
+
+
+---
+
+Q20 – Read and print multiple lines
+
+#include <stdio.h>
+int main() {
+    char line1[30], line2[30];
+    gets(line1);
+    gets(line2);
+    puts(line1);
+    puts(line2);
+    return 0;
+}
+
+Output:
+
+C is fun
+I love coding
+C is fun
+I love coding
