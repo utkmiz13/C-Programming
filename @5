@@ -1,0 +1,333 @@
+Class 5 – Loops and Nested Loops in C (Questions and Answers)
+
+1. What is a loop in C?
+A loop is a control structure that allows repeated execution of a block of code until a specific condition becomes false.
+
+
+---
+
+2. What are the types of loops in C?
+There are three main types of loops in C:
+
+1. for loop
+
+
+2. while loop
+
+
+3. do-while loop
+
+
+
+
+---
+
+3. What is the syntax of a for loop?
+
+for (initialization; condition; increment/decrement) {
+    // statements
+}
+
+
+---
+
+4. Write a program to print numbers from 1 to 10 using a for loop.
+
+#include <stdio.h>
+int main() {
+    for (int i = 1; i <= 10; i++) {
+        printf("%d ", i);
+    }
+    return 0;
+}
+
+Output:
+
+1 2 3 4 5 6 7 8 9 10
+
+
+---
+
+5. What is a while loop?
+A while loop executes a block of code repeatedly as long as the given condition is true.
+
+
+---
+
+6. Write a program to print numbers from 1 to 5 using a while loop.
+
+#include <stdio.h>
+int main() {
+    int i = 1;
+    while (i <= 5) {
+        printf("%d ", i);
+        i++;
+    }
+    return 0;
+}
+
+Output:
+
+1 2 3 4 5
+
+
+---
+
+7. What is a do-while loop?
+A do-while loop executes the block of code once before checking the condition. It guarantees at least one execution.
+
+
+---
+
+8. Write a program to print numbers from 1 to 5 using a do-while loop.
+
+#include <stdio.h>
+int main() {
+    int i = 1;
+    do {
+        printf("%d ", i);
+        i++;
+    } while (i <= 5);
+    return 0;
+}
+
+Output:
+
+1 2 3 4 5
+
+
+---
+
+9. What is the difference between while and do-while loops?
+In a while loop, the condition is checked before the first iteration, whereas in a do-while loop, the condition is checked after executing the loop body.
+
+
+---
+
+10. Write a program to print even numbers from 2 to 20.
+
+#include <stdio.h>
+int main() {
+    for (int i = 2; i <= 20; i += 2) {
+        printf("%d ", i);
+    }
+    return 0;
+}
+
+Output:
+
+2 4 6 8 10 12 14 16 18 20
+
+
+---
+
+11. Write a program to calculate the sum of the first 10 natural numbers.
+
+#include <stdio.h>
+int main() {
+    int sum = 0;
+    for (int i = 1; i <= 10; i++) {
+        sum += i;
+    }
+    printf("Sum = %d", sum);
+    return 0;
+}
+
+Output:
+
+Sum = 55
+
+
+---
+
+12. What is a nested loop?
+A nested loop means a loop inside another loop. It is often used for working with multi-dimensional data such as matrices.
+
+
+---
+
+13. Write a program using nested for loops to print a 3×3 matrix of stars.
+
+#include <stdio.h>
+int main() {
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= 3; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+Output:
+
+* * * 
+* * * 
+* * *
+
+
+---
+
+14. Write a program to print a right-angle triangle pattern using stars.
+
+#include <stdio.h>
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        for (int j = 1; j <= i; j++) {
+            printf("* ");
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+Output:
+
+* 
+* * 
+* * * 
+* * * * 
+* * * * *
+
+
+---
+
+15. Write a program to print a multiplication table of a given number.
+
+#include <stdio.h>
+int main() {
+    int n;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= 10; i++) {
+        printf("%d x %d = %d\n", n, i, n * i);
+    }
+    return 0;
+}
+
+Output:
+
+Enter a number: 5
+5 x 1 = 5
+5 x 2 = 10
+5 x 3 = 15
+...
+5 x 10 = 50
+
+
+---
+
+16. Write a program using while loop to calculate factorial of a number.
+
+#include <stdio.h>
+int main() {
+    int n, fact = 1, i = 1;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    while (i <= n) {
+        fact *= i;
+        i++;
+    }
+    printf("Factorial = %d", fact);
+    return 0;
+}
+
+Output:
+
+Enter a number: 5
+Factorial = 120
+
+
+---
+
+17. Write a program to find the sum of digits of a number using a while loop.
+
+#include <stdio.h>
+int main() {
+    int n, sum = 0, rem;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    while (n != 0) {
+        rem = n % 10;
+        sum += rem;
+        n /= 10;
+    }
+    printf("Sum of digits = %d", sum);
+    return 0;
+}
+
+Output:
+
+Enter a number: 1234
+Sum of digits = 10
+
+
+---
+
+18. Write a program using nested loops to print numbers in a 3×3 matrix.
+
+#include <stdio.h>
+int main() {
+    int count = 1;
+    for (int i = 1; i <= 3; i++) {
+        for (int j = 1; j <= 3; j++) {
+            printf("%d ", count++);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+Output:
+
+1 2 3 
+4 5 6 
+7 8 9
+
+
+---
+
+19. Write a program to print the Fibonacci series using a for loop.
+
+#include <stdio.h>
+int main() {
+    int n, t1 = 0, t2 = 1, next;
+    printf("Enter number of terms: ");
+    scanf("%d", &n);
+    for (int i = 1; i <= n; i++) {
+        printf("%d ", t1);
+        next = t1 + t2;
+        t1 = t2;
+        t2 = next;
+    }
+    return 0;
+}
+
+Output:
+
+Enter number of terms: 7
+0 1 1 2 3 5 8
+
+
+---
+
+20. Write a program to reverse a number using a while loop.
+
+#include <stdio.h>
+int main() {
+    int n, rev = 0, rem;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    while (n != 0) {
+        rem = n % 10;
+        rev = rev * 10 + rem;
+        n /= 10;
+    }
+    printf("Reversed number = %d", rev);
+    return 0;
+}
+
+Output:
+
+Enter a number: 1234
+Reversed number = 4321
