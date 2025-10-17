@@ -1,354 +1,288 @@
-Q1 – Read and print an integer
 
-#include <stdio.h>
-int main() {
-    int a;
-    printf("Enter number: ");
-    scanf("%d", &a);
-    printf("You entered %d", a);
-    return 0;
-}
+Class 4 – Control Statements in C (Questions and Answers)
 
-Output:
-
-Enter number: 5
-You entered 5
+1. What are control statements in C?
+Control statements are used to control the flow of execution of a program depending on certain conditions. They include decision-making, looping, and jump statements.
 
 
 ---
 
-Q2 – Input and print two integers
+2. What are the types of control statements?
+There are three types of control statements:
 
-#include <stdio.h>
-int main() {
-    int a, b;
-    printf("Enter two numbers: ");
-    scanf("%d%d", &a, &b);
-    printf("Numbers are %d and %d", a, b);
-    return 0;
-}
+1. Decision-making statements (if, if-else, switch)
 
-Output:
 
-Enter two numbers: 3 7
-Numbers are 3 and 7
+2. Looping statements (for, while, do-while)
+
+
+3. Jump statements (break, continue, goto, return)
+
+
 
 
 ---
 
-Q3 – Add two numbers (user input)
+3. Write a program to check whether a number is even or odd.
 
 #include <stdio.h>
 int main() {
-    int a, b;
-    printf("Enter two numbers: ");
-    scanf("%d%d", &a, &b);
-    printf("Sum = %d", a + b);
+    int num;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    if (num % 2 == 0)
+        printf("Even number");
+    else
+        printf("Odd number");
     return 0;
 }
 
 Output:
 
-Enter two numbers: 5 8
-Sum = 13
+Enter a number: 5
+Odd number
 
 
 ---
 
-Q4 – Take float input and display
+4. What is the syntax of the if statement?
 
-#include <stdio.h>
-int main() {
-    float num;
-    printf("Enter a float value: ");
-    scanf("%f", &num);
-    printf("You entered %.2f", num);
-    return 0;
+if (condition) {
+    // statements
 }
-
-Output:
-
-Enter a float value: 3.75
-You entered 3.75
 
 
 ---
 
-Q5 – Read a character
+5. Write a program using an if-else ladder to find the largest of three numbers.
 
 #include <stdio.h>
 int main() {
-    char ch;
-    printf("Enter a character: ");
-    scanf(" %c", &ch);
-    printf("Character: %c", ch);
+    int a, b, c;
+    printf("Enter three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+    if (a > b && a > c)
+        printf("%d is largest", a);
+    else if (b > a && b > c)
+        printf("%d is largest", b);
+    else
+        printf("%d is largest", c);
     return 0;
 }
 
 Output:
 
-Enter a character: Z
-Character: Z
+Enter three numbers: 10 25 12
+25 is largest
 
 
 ---
 
-Q6 – Use getchar() and putchar()
-
-#include <stdio.h>
-int main() {
-    char ch;
-    ch = getchar();
-    putchar(ch);
-    return 0;
-}
-
-Output:
-
-A
-A
+6. What is a nested if statement?
+A nested if statement means using an if inside another if to check multiple conditions.
 
 
 ---
 
-Q7 – Print string using puts()
+7. Write a program to check if a year is a leap year using nested if.
 
 #include <stdio.h>
 int main() {
-    puts("Welcome to C Programming!");
+    int year;
+    printf("Enter a year: ");
+    scanf("%d", &year);
+    if (year % 4 == 0) {
+        if (year % 100 == 0) {
+            if (year % 400 == 0)
+                printf("Leap year");
+            else
+                printf("Not a leap year");
+        } else
+            printf("Leap year");
+    } else
+        printf("Not a leap year");
     return 0;
 }
 
 Output:
 
-Welcome to C Programming!
+Enter a year: 2024
+Leap year
 
 
 ---
 
-Q8 – Read a word using scanf()
-
-#include <stdio.h>
-int main() {
-    char name[20];
-    scanf("%s", name);
-    printf("Hello %s", name);
-    return 0;
-}
-
-Output:
-
-Parth
-Hello Parth
+8. What is a switch statement?
+The switch statement is used when we have multiple choices, and we need to execute one block based on a matching value.
 
 
 ---
 
-Q9 – Read a full sentence using gets()
+9. Write a program to display the day of the week using switch.
 
 #include <stdio.h>
 int main() {
-    char sentence[50];
-    gets(sentence);
-    puts(sentence);
+    int day;
+    printf("Enter day number (1-7): ");
+    scanf("%d", &day);
+    switch (day) {
+        case 1: printf("Monday"); break;
+        case 2: printf("Tuesday"); break;
+        case 3: printf("Wednesday"); break;
+        case 4: printf("Thursday"); break;
+        case 5: printf("Friday"); break;
+        case 6: printf("Saturday"); break;
+        case 7: printf("Sunday"); break;
+        default: printf("Invalid input");
+    }
     return 0;
 }
 
 Output:
 
-I love coding
-I love coding
+Enter day number (1-7): 6
+Saturday
 
 
 ---
 
-Q10 – Demonstrate \n and \t
-
-#include <stdio.h>
-int main() {
-    printf("Hello\tWorld\nC\tLanguage");
-    return 0;
-}
-
-Output:
-
-Hello   World
-C       Language
+10. What is a loop in C?
+A loop is used to execute a block of code repeatedly as long as a condition is true.
 
 
 ---
 
-Q11 – Take two floats and print average
+11. Write a program using a for loop to print numbers from 1 to 10.
 
 #include <stdio.h>
 int main() {
-    float a, b;
-    scanf("%f%f", &a, &b);
-    printf("Average = %.2f", (a + b) / 2);
+    for (int i = 1; i <= 10; i++) {
+        printf("%d ", i);
+    }
     return 0;
 }
 
 Output:
 
-5.5 6.5
-Average = 6.00
+1 2 3 4 5 6 7 8 9 10
 
 
 ---
 
-Q12 – Read name and age
+12. Write a program using while loop to print the first 5 natural numbers.
 
 #include <stdio.h>
 int main() {
-    char name[20];
-    int age;
-    printf("Enter name and age: ");
-    scanf("%s%d", name, &age);
-    printf("%s is %d years old.", name, age);
+    int i = 1;
+    while (i <= 5) {
+        printf("%d ", i);
+        i++;
+    }
     return 0;
 }
 
 Output:
 
-Parth 19
-Parth is 19 years old.
+1 2 3 4 5
 
 
 ---
 
-Q13 – Input character and show ASCII value
+13. Write a program using do-while loop to print numbers from 1 to 5.
 
 #include <stdio.h>
 int main() {
-    char c;
-    scanf("%c", &c);
-    printf("ASCII of %c = %d", c, c);
+    int i = 1;
+    do {
+        printf("%d ", i);
+        i++;
+    } while (i <= 5);
     return 0;
 }
 
 Output:
 
-A
-ASCII of A = 65
+1 2 3 4 5
 
 
 ---
 
-Q14 – Take integer, float, char together
-
-#include <stdio.h>
-int main() {
-    int i; float f; char c;
-    scanf("%d %f %c", &i, &f, &c);
-    printf("%d %.2f %c", i, f, c);
-    return 0;
-}
-
-Output:
-
-5 2.5 A
-5 2.50 A
+14. What is the difference between while and do-while?
+In while, the condition is checked before executing the loop body.
+In do-while, the loop body executes first, and then the condition is checked.
 
 
 ---
 
-Q15 – Display numbers in same line using \t
-
-#include <stdio.h>
-int main() {
-    printf("1\t2\t3\t4\t5");
-    return 0;
-}
-
-Output:
-
-1   2   3   4   5
+15. What is the use of the break statement?
+The break statement is used to terminate a loop or switch immediately when a condition is met.
 
 
 ---
 
-Q16 – Read string using scanf()
-
-#include <stdio.h>
-int main() {
-    char str[10];
-    scanf("%s", str);
-    printf("You entered %s", str);
-    return 0;
-}
-
-Output:
-
-Hello
-You entered Hello
+16. What is the use of the continue statement?
+The continue statement skips the remaining code inside a loop for the current iteration and moves to the next iteration.
 
 
 ---
 
-Q17 – Use escape sequence to print quote
+17. Write a program using break to stop a loop when i = 5.
 
 #include <stdio.h>
 int main() {
-    printf("\"C is Powerful!\"");
+    for (int i = 1; i <= 10; i++) {
+        if (i == 5)
+            break;
+        printf("%d ", i);
+    }
     return 0;
 }
 
 Output:
 
-"C is Powerful!"
+1 2 3 4
 
 
 ---
 
-Q18 – Display backslash and newline
+18. Write a program using continue to skip 5 in the loop.
 
 #include <stdio.h>
 int main() {
-    printf("This is a backslash: \\\nNew line below!");
+    for (int i = 1; i <= 10; i++) {
+        if (i == 5)
+            continue;
+        printf("%d ", i);
+    }
     return 0;
 }
 
 Output:
 
-This is a backslash: \
-New line below!
+1 2 3 4 6 7 8 9 10
 
 
 ---
 
-Q19 – Print user input string with puts()
-
-#include <stdio.h>
-int main() {
-    char str[30];
-    gets(str);
-    puts(str);
-    return 0;
-}
-
-Output:
-
-Learning C Language
-Learning C Language
+19. What is the goto statement?
+The goto statement transfers control to a labeled statement in the program.
 
 
 ---
 
-Q20 – Read and print multiple lines
+20. Write a program using goto to print numbers from 1 to 5.
 
 #include <stdio.h>
 int main() {
-    char line1[30], line2[30];
-    gets(line1);
-    gets(line2);
-    puts(line1);
-    puts(line2);
+    int i = 1;
+start:
+    printf("%d ", i);
+    i++;
+    if (i <= 5)
+        goto start;
     return 0;
 }
 
 Output:
 
-C is fun
-I love coding
-C is fun
-I love coding
+1 2 3 4 5
