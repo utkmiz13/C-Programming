@@ -1,0 +1,294 @@
+Class 10 – Structures and Unions in C (Questions and Answers)
+
+
+---
+
+1. What is a structure in C?
+A structure is a user-defined data type that allows grouping of different data types under a single name.
+
+
+---
+
+2. How do you declare a structure?
+
+struct structure_name {
+    data_type member1;
+    data_type member2;
+    // more members
+};
+
+
+---
+
+3. How do you define a structure variable?
+
+struct student {
+    int id;
+    char name[20];
+};
+struct student s1;
+
+
+---
+
+4. Write a program to store and display student details using a structure.
+
+#include <stdio.h>
+struct student {
+    int id;
+    char name[20];
+};
+int main() {
+    struct student s1 = {101, "Parth"};
+    printf("ID: %d\nName: %s", s1.id, s1.name);
+    return 0;
+}
+
+Output:
+
+ID: 101
+Name: Parth
+
+
+---
+
+5. How do you take input for a structure variable?
+
+#include <stdio.h>
+struct student {
+    int id;
+    char name[20];
+};
+int main() {
+    struct student s1;
+    printf("Enter ID: ");
+    scanf("%d", &s1.id);
+    printf("Enter Name: ");
+    scanf("%s", s1.name);
+    printf("ID: %d, Name: %s", s1.id, s1.name);
+    return 0;
+}
+
+
+---
+
+6. What is a pointer to a structure?
+A pointer that stores the address of a structure variable.
+
+
+---
+
+7. How do you access structure members using a pointer?
+Using the -> operator.
+
+ptr->member
+
+Example:
+
+struct student *p = &s1;
+printf("%d", p->id);
+
+
+---
+
+8. Write a program to display structure members using a pointer.
+
+#include <stdio.h>
+struct student {
+    int id;
+    char name[20];
+};
+int main() {
+    struct student s1 = {101, "Parth"};
+    struct student *ptr = &s1;
+    printf("ID: %d, Name: %s", ptr->id, ptr->name);
+    return 0;
+}
+
+Output:
+
+ID: 101, Name: Parth
+
+
+---
+
+9. What is an array of structures?
+An array where each element is a structure variable. Used to store multiple records of same type.
+
+
+---
+
+10. Write a program to store details of 3 students using array of structures.
+
+#include <stdio.h>
+struct student {
+    int id;
+    char name[20];
+};
+int main() {
+    struct student s[3];
+    for (int i = 0; i < 3; i++) {
+        printf("Enter ID and Name: ");
+        scanf("%d %s", &s[i].id, s[i].name);
+    }
+    printf("Student Details:\n");
+    for (int i = 0; i < 3; i++) {
+        printf("%d %s\n", s[i].id, s[i].name);
+    }
+    return 0;
+}
+
+Output:
+
+Enter ID and Name: 101 Parth
+Enter ID and Name: 102 Ravi
+Enter ID and Name: 103 Ankit
+Student Details:
+101 Parth
+102 Ravi
+103 Ankit
+
+
+---
+
+11. What is a nested structure?
+A structure inside another structure.
+
+Example:
+
+struct date {
+    int day, month, year;
+};
+struct student {
+    char name[20];
+    struct date dob;
+};
+
+
+---
+
+12. Write a program to demonstrate nested structures.
+
+#include <stdio.h>
+struct date {
+    int day, month, year;
+};
+struct student {
+    char name[20];
+    struct date dob;
+};
+int main() {
+    struct student s = {"Parth", {17, 10, 2025}};
+    printf("Name: %s\nDOB: %d/%d/%d", s.name, s.dob.day, s.dob.month, s.dob.year);
+    return 0;
+}
+
+Output:
+
+Name: Parth
+DOB: 17/10/2025
+
+
+---
+
+13. What is a union in C?
+A union is a user-defined data type where all members share the same memory location. Only one member can hold a value at a time.
+
+
+---
+
+14. How do you declare a union?
+
+union union_name {
+    data_type member1;
+    data_type member2;
+};
+
+
+---
+
+15. Write a program to demonstrate union.
+
+#include <stdio.h>
+union data {
+    int i;
+    float f;
+    char str[20];
+};
+int main() {
+    union data d;
+    d.i = 10;
+    printf("i = %d\n", d.i);
+    d.f = 3.14;
+    printf("f = %.2f\n", d.f);
+    return 0;
+}
+
+Output:
+
+i = 10
+f = 3.14
+
+(Note: assigning to f overwrites i because memory is shared.)
+
+
+---
+
+16. What is the difference between structure and union?
+
+Feature	Structure	Union
+
+Memory Allocation	Separate memory for each member	Shared memory for all members
+Size	Sum of all members	Size of largest member
+Members	All members can be used at same time	Only one member can hold value at a time
+
+
+
+---
+
+17. Can we have pointers to unions?
+Yes, similar to structures, pointers can be used to access union members.
+
+
+---
+
+18. Write a program to use a pointer to a union.
+
+#include <stdio.h>
+union data {
+    int i;
+    float f;
+};
+int main() {
+    union data d;
+    union data *ptr = &d;
+    ptr->i = 100;
+    printf("i = %d", ptr->i);
+    return 0;
+}
+
+Output:
+
+i = 100
+
+
+---
+
+19. What is the size of a structure and a union?
+
+Structure size = sum of all members + padding
+
+Union size = size of the largest member
+
+
+
+---
+
+20. Why do we use structures and unions?
+
+To group related data under one name
+
+Structures: multiple data members simultaneously
+
+Unions: save memory when only one member is used at a time
+
