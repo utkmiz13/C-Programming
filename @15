@@ -1,0 +1,264 @@
+Class 15 – Arrays in C (Questions and Answers)
+
+1. What is an array in C?
+An array is a collection of elements of the same data type, stored in contiguous memory locations, and accessed using an index.
+
+
+---
+
+2. What is the syntax to declare an array?
+
+data_type array_name[size];
+
+Example:
+
+int numbers[5];
+
+
+---
+
+3. How do you initialize an array in C?
+Arrays can be initialized at the time of declaration:
+
+int numbers[5] = {1, 2, 3, 4, 5};
+
+If fewer elements are provided, the remaining elements are initialized to 0.
+
+
+---
+
+4. Write a program to print elements of an integer array.
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50};
+    for(int i = 0; i < 5; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+
+Output: 10 20 30 40 50
+
+
+---
+
+5. How do you take input for an array?
+Use a loop with scanf(). Example:
+
+int arr[3];
+for(int i = 0; i < 3; i++) {
+    scanf("%d", &arr[i]);
+}
+
+
+---
+
+6. Write a program to find the sum of elements in an array.
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {1, 2, 3, 4, 5}, sum = 0;
+    for(int i = 0; i < 5; i++) {
+        sum += arr[i];
+    }
+    printf("Sum = %d", sum);
+    return 0;
+}
+
+Output: Sum = 15
+
+
+---
+
+7. Write a program to find the largest element in an array.
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {10, 50, 20, 40, 30};
+    int max = arr[0];
+    for(int i = 1; i < 5; i++) {
+        if(arr[i] > max) max = arr[i];
+    }
+    printf("Largest = %d", max);
+    return 0;
+}
+
+Output: Largest = 50
+
+
+---
+
+8. Write a program to find the smallest element in an array.
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {10, 50, 20, 40, 30};
+    int min = arr[0];
+    for(int i = 1; i < 5; i++) {
+        if(arr[i] < min) min = arr[i];
+    }
+    printf("Smallest = %d", min);
+    return 0;
+}
+
+Output: Smallest = 10
+
+
+---
+
+9. What is a multidimensional array?
+A multidimensional array has more than one index, used to store data in rows and columns. Example: int matrix[3][3];
+
+
+---
+
+10. Write a program to print a 2x2 matrix.
+
+#include <stdio.h>
+int main() {
+    int matrix[2][2] = {{1, 2}, {3, 4}};
+    for(int i = 0; i < 2; i++) {
+        for(int j = 0; j < 2; j++) {
+            printf("%d ", matrix[i][j]);
+        }
+        printf("\n");
+    }
+    return 0;
+}
+
+Output:
+
+1 2
+3 4
+
+
+---
+
+11. Write a program to find the sum of each row in a 2D array.
+
+#include <stdio.h>
+int main() {
+    int matrix[2][3] = {{1, 2, 3}, {4, 5, 6}};
+    for(int i = 0; i < 2; i++) {
+        int sum = 0;
+        for(int j = 0; j < 3; j++) {
+            sum += matrix[i][j];
+        }
+        printf("Row %d sum = %d\n", i+1, sum);
+    }
+    return 0;
+}
+
+Output:
+
+Row 1 sum = 6
+Row 2 sum = 15
+
+
+---
+
+12. What is the difference between 1D and 2D arrays?
+
+1D array: single row of elements
+
+2D array: matrix with rows and columns
+
+
+
+---
+
+13. How are arrays passed to functions?
+Arrays are passed by reference (the base address is passed). Changes in the function affect the original array.
+
+
+---
+
+14. Write a program to pass an array to a function.
+
+#include <stdio.h>
+void printArray(int arr[], int n) {
+    for(int i = 0; i < n; i++) printf("%d ", arr[i]);
+}
+int main() {
+    int arr[3] = {10, 20, 30};
+    printArray(arr, 3);
+    return 0;
+}
+
+Output: 10 20 30
+
+
+---
+
+15. How do you find the length of an array in C?
+Using sizeof(arr)/sizeof(arr[0]). Example:
+
+int n = sizeof(arr)/sizeof(arr[0]);
+
+
+---
+
+16. Write a program to reverse a 1D array.
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {1,2,3,4,5};
+    for(int i = 4; i >= 0; i--) printf("%d ", arr[i]);
+    return 0;
+}
+
+Output: 5 4 3 2 1
+
+
+---
+
+17. Write a program to copy one array to another.
+
+#include <stdio.h>
+int main() {
+    int a[3] = {1,2,3}, b[3];
+    for(int i = 0; i < 3; i++) b[i] = a[i];
+    for(int i = 0; i < 3; i++) printf("%d ", b[i]);
+    return 0;
+}
+
+Output: 1 2 3
+
+
+---
+
+18. How do you perform linear search in an array?
+Compare each element sequentially with the key until found.
+
+
+---
+
+19. Write a program for linear search.
+
+#include <stdio.h>
+int main() {
+    int arr[5] = {10, 20, 30, 40, 50}, key = 30;
+    for(int i = 0; i < 5; i++) {
+        if(arr[i] == key) {
+            printf("Found at index %d", i);
+            break;
+        }
+    }
+    return 0;
+}
+
+Output: Found at index 2
+
+
+---
+
+20. What are the advantages of arrays?
+
+Store multiple elements of same type
+
+Efficient access using index
+
+Can pass to functions easily
+
+Can represent matrices or tables
