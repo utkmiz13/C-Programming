@@ -1,0 +1,263 @@
+Class 9 – Functions in C (Questions and Answers)
+
+
+---
+
+1. What is a function in C?
+A function is a block of code that performs a specific task and can be called multiple times in a program to avoid repetition.
+
+
+---
+
+2. What are the advantages of using functions?
+
+Code reusability
+
+Easy to debug and maintain
+
+Improves readability
+
+Reduces redundancy
+
+
+
+---
+
+3. What is the syntax to define a function?
+
+return_type function_name(parameters) {
+    // body of function
+}
+
+
+---
+
+4. What is a function prototype?
+A function prototype declares the function signature before main() to inform the compiler about the function’s return type and parameters.
+Example:
+
+int add(int, int);
+
+
+---
+
+5. Write a program to create a simple function that prints “Hello World”.
+
+#include <stdio.h>
+void greet() {
+    printf("Hello World");
+}
+int main() {
+    greet();
+    return 0;
+}
+
+Output:
+
+Hello World
+
+
+---
+
+6. What is the difference between call by value and call by reference?
+
+Call by Value: Copies of actual parameters are passed. Changes in the function do not affect original values.
+
+Call by Reference: Addresses of actual parameters are passed. Changes in the function affect original values.
+
+
+
+---
+
+7. Write a program to add two numbers using call by value.
+
+#include <stdio.h>
+void add(int a, int b) {
+    int sum = a + b;
+    printf("Sum = %d", sum);
+}
+int main() {
+    int x = 10, y = 20;
+    add(x, y);
+    return 0;
+}
+
+Output:
+
+Sum = 30
+
+
+---
+
+8. Write a program to swap two numbers using call by reference.
+
+#include <stdio.h>
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+int main() {
+    int x = 5, y = 10;
+    swap(&x, &y);
+    printf("x = %d, y = %d", x, y);
+    return 0;
+}
+
+Output:
+
+x = 10, y = 5
+
+
+---
+
+9. What is a recursive function?
+A recursive function is a function that calls itself directly or indirectly to solve a problem.
+
+
+---
+
+10. Write a recursive function to calculate factorial of a number.
+
+#include <stdio.h>
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+int main() {
+    int num = 5;
+    printf("Factorial = %d", factorial(num));
+    return 0;
+}
+
+Output:
+
+Factorial = 120
+
+
+---
+
+11. Write a recursive function to find the nth Fibonacci number.
+
+#include <stdio.h>
+int fib(int n) {
+    if (n == 0) return 0;
+    if (n == 1) return 1;
+    return fib(n-1) + fib(n-2);
+}
+int main() {
+    int n = 7;
+    printf("Fibonacci = %d", fib(n));
+    return 0;
+}
+
+Output:
+
+Fibonacci = 13
+
+
+---
+
+12. What is a function with return value?
+A function that returns a value to the caller using the return statement.
+
+Example:
+
+int add(int a, int b) {
+    return a + b;
+}
+
+
+---
+
+13. Write a program to calculate square of a number using a function with return type.
+
+#include <stdio.h>
+int square(int n) {
+    return n * n;
+}
+int main() {
+    int num = 6;
+    printf("Square = %d", square(num));
+    return 0;
+}
+
+Output:
+
+Square = 36
+
+
+---
+
+14. What is a function without return value?
+A function that does not return any value is declared with void as return type.
+
+
+---
+
+15. Write a function to print the first n natural numbers.
+
+#include <stdio.h>
+void printNumbers(int n) {
+    for (int i = 1; i <= n; i++) {
+        printf("%d ", i);
+    }
+}
+int main() {
+    printNumbers(5);
+    return 0;
+}
+
+Output:
+
+1 2 3 4 5
+
+
+---
+
+16. What is the difference between local and global variables?
+
+Local variables: Declared inside a function and accessible only within that function.
+
+Global variables: Declared outside all functions and accessible anywhere in the program.
+
+
+
+---
+
+17. Write a program to demonstrate global and local variables.
+
+#include <stdio.h>
+int global = 50;
+int main() {
+    int local = 10;
+    printf("Global = %d, Local = %d", global, local);
+    return 0;
+}
+
+Output:
+
+Global = 50, Local = 10
+
+
+---
+
+18. What is function overloading in C?
+C does not support function overloading. Each function must have a unique name.
+
+
+---
+
+19. Can a function call another function in C?
+Yes, a function can call another function or even itself (recursion).
+
+
+---
+
+20. What is the difference between a function prototype and function definition?
+
+Function prototype: Declares the function signature before its use.
+
+Function definition: Contains the actual body of the function with logic.
